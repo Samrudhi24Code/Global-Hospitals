@@ -54,13 +54,18 @@ In the current healthcare landscape, patients often face challenges in locating 
 **1. Frontend**:
  HTML, CSS,
  JavaScript: For basic structure and styling.
+
+
 **2. Backend**
  Java Servlets: For handling HTTP requests, managing sessions, and performing business logic.
  JDBC: For connecting the backend to the MySQL database.
  Tomcat Server: To deploy and run Java Servlets.
-3. Database
+
+**3. Database**
  MySQL: For storing all hospital information, user data, doctor information, appointments, and feedback.
  XAMPP: As a development environment for the Apache server and MySQL
+
+
 
 ## Installation
 
