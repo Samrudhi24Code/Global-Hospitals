@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Submission Form</title>
+    <style>
+        /* General styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+            color: #333;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Form container styling */
+        form {
+            background-color: #ffffff;
+            max-width: 600px; /* Adjusted for wider form */
+            width: 100%;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin: 12px 0 6px;
+        }
+
+        /* Input and button styling */
+        input[type="text"],
+        input[type="file"],
+        .doctor-field input[type="text"] {
+            width: calc(100% - 20px); /* Adjusted width */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        .doctor-field input[type="text"]:focus {
+            border-color: #5f2c82;
+        }
+
+        /* Style for file input */
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Doctor field styling */
+        .doctor-field {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        /* Button styling */
+        .add-doctor-button, .remove-doctor-button {
+            background: #5f2c82;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .add-doctor-button:hover, .remove-doctor-button:hover {
+            background: #49a09d;
+        }
+
+        /* Submit button styling */
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, #49a09d, #5f2c82);
+        }
+    </style>
+    <script>
+        // Function to add a new doctor field set
+        function addDoctorField() {
+            const container = document.getElementById('doctorsContainer');
+            const div = document.createElement('div');
+            div.className = 'doctor-field';
+            div.innerHTML = `
+                <label>Doctor's Name:</label>
+                <input type="text" name="doctor_name[]" required>
+                
+                <label>Specialization:</label>
+                <input type="text" name="doctor_specialization[]" required>
+                
+                <label>Qualification:</label>
+                <input type="text" name="doctor_qualification[]" required>
+
+                <button type="button" class="remove-doctor-button" onclick="removeDoctorField(this)">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        // Function to remove a doctor field set
+        function removeDoctorField(button) {
+            const field = button.parentElement;
+            field.remove();
+        }
+    </script>
+</head>
+<body>
+    <form id="hospitalForm" action="HospitalServlet" method="post" enctype="multipart/form-data">
+        <h2>Hospital Submission Form</h2>
+
+        <label for="hospital_name">Hospital Name:</label>
+        <input type="text" id="hospital_name" name="hospital_name" required>
+
+        <div id="doctorsContainer">
+            <h3>Doctors Information</h3>
+            <!-- Initial Doctor Fields -->
+            <div class="doctor-field">
+                <label>Doctor's Name:</label>
+                <input type="text" name="doctor_name[]" required>
+
+                <label>Specialization:</label>
+                <input type="text" name="doctor_specialization[]" required>
+
+                <label>Qualification:</label>
+                <input type="text" name="doctor_qualification[]" required>
+            </div>
+        </div>
+        
+        <!-- Button to Add New Doctor Fields -->
+        <button type="button" class="add-doctor-button" onclick="addDoctorField()">Add Another Doctor</button>
+
+        <label for="specializations">Specializations:</label>
+        <input type="text" id="specializations" name="specializations" placeholder="e.g., Cardiology, Dermatology" required>
+
+        <label for="facilities">Facilities:</label>
+        <input type="text" id="facilities" name="facilities" placeholder="e.g., 24/7 Emergency, ICU, Pharmacy" required>
+
+        <label for="hospital_image">Upload Hospital Image:</label>
+        <input type="file" id="hospital_image" name="hospital_image" accept="image/*" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="contact_info">Contact Information:</label>
+        <input type="text" id="contact_info" name="contact_info" required>
+
+        <label for="operating_hours">Operating Hours:</label>
+        <input type="text" id="operating_hours" name="operating_hours" placeholder="e.g., 9 AM - 5 PM" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

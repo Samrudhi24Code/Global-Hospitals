@@ -1,0 +1,135 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    background-color: #afe4ea !important;  /* Soft gray background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2, h3 {
+    color: #1f4e79;  /* Subtle dark blue for headings */
+    text-align: center;
+}
+
+.details, .doctors, .reviews, .appointment {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Light shadow for floating effect */
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.details {
+    border-left: 4px solid #1f4e79;  /* Blue border for details section */
+}
+
+.doctors, .reviews {
+    border-left: 4px solid #3b5998;  /* Dark gray-blue border for doctors/reviews */
+}
+
+.appointment {
+    border-left: 4px solid #1f4e79;  /* Matching blue border for appointment section */
+}
+
+.details p, .doctors p, .reviews p, .appointment p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.details img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 300px;
+    height: auto;
+}
+
+.doctors ul, .reviews ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.doctors li, .reviews li {
+    background-color: #f7f9fc;  /* Light gray background for list items */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #d1d9e6;  /* Light gray border */
+}
+
+.rating {
+    color: #ffb300;  /* Soft gold color for rating */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.appointment form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.appointment input[type='text'], .appointment input[type='date'], 
+.appointment input[type='time'], .appointment input[type='number'] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.appointment button {
+    grid-column: span 2;
+    padding: 12px;
+    background-color: #3b5998;  /* Subtle blue button */
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.appointment button:hover {
+    background-color: #1f4e79;  /* Darker blue on hover */
+}
+
+.container h3 {
+    font-size: 1.5rem;
+    color: #1f4e79;
+    margin-bottom: 15px;
+}
+
+.container p {
+    font-size: 1rem;
+}
+
+.details h2 {
+    font-size: 2rem;
+    color: #3b5998;  /* Professional blue for main headings */
+}
+
+@media screen and (max-width: 768px) {
+    .appointment form {
+        grid-template-columns: 1fr;
+    }
+}

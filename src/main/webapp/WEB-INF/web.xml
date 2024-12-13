@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- Display name for the application -->
+    <display-name>HospitalFinal</display-name>
+
+    <!-- Welcome file list configuration -->
+    	<welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+        <welcome-file>adminSignup.html</welcome-file>
+        <welcome-file>doctorSignup.html</welcome-file>
+        <welcome-file>roleselection.html</welcome-file>
+        <welcome-file>Formfillingback.html</welcome-file>
+        <welcome-file>userHomePage.html</welcome-file>
+        <welcome-file>userSignup.html</welcome-file>
+        <welcome-file>backbooking.html</welcome-file>
+        <welcome-file>book.css</welcome-file>
+        <welcome-file>SuccessBooking.html</welcome-file>
+        <welcome-file>doctorHome.html</welcome-file>
+        <welcome-file>homeuser.html</welcome-file>
+        <welcome-file>adminhome.html</welcome-file>
+        <welcome-file>contact.html</welcome-file>
+        <welcome-file>PatientBooking.html</welcome-file>
+        <welcome-file>frontpage.html</welcome-file>
+        <welcome-file>rating.html</welcome-file>
+        <welcome-file>instructions.html</welcome-file>
+        <welcome-file>homeadmin.html</welcome-file>
+        <welcome-file>hospital.html</welcome-file>
+        <welcome-file>adminDashboard.html</welcome-file>
+        <welcome-file>bookingappointment.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    
+</web-app>

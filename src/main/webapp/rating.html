@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Hospital Rating</title>
+    <style>
+        /* Main styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background:  #99c2f0 ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Rating container styling */
+        .rating-container {
+            width: 340px;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .rating-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .rating-container h2 {
+            margin-bottom: 20px;
+            color: #673ab7;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #673ab7;
+            outline: none;
+            box-shadow: 0 0 5px rgba(103, 58, 183, 0.3);
+        }
+
+        /* Star rating styling */
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+            gap: 5px;
+        }
+
+        .star-rating .star {
+            font-size: 32px;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s ease;
+        }
+
+        .star-rating .star:hover,
+        .star-rating .star.selected,
+        .star-rating .star:hover ~ .star {
+            color: #ffd700; /* Gold color */
+            transform: scale(1.1);
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #673ab7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #5e35b1;
+            transform: scale(1.05);
+        }
+
+        /* Back and Log Out button styling */
+        .top-buttons {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 10px;
+        }
+
+        /* Result message styling */
+        #result {
+            display: none; /* Initially hidden */
+            color: #673ab7;
+            margin-top: 20px; /* Added margin for spacing */
+            padding: 25px;
+            background-color: #fff; /* Match background with the form */
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .rating-container p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top buttons: Back and Log Out -->
+    <div class="top-buttons">
+        <button onclick="goBack()">Back</button>
+        
+    </div>
+    
+    <!-- Rating Form -->
+    <div class="rating-container" id="formContainer">
+        <h2>Rate the Hospital</h2>
+
+        <!-- Wrap input fields in a form -->
+        <form id="ratingForm" action="HospitalRatingServlet" method="POST">
+            <!-- Hospital Name Field -->
+            <div class="form-group">
+                <label for="hospitalName">Hospital Name</label>
+                <input type="text" id="hospitalName" name="hospitalName" placeholder="Enter hospital name" required>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <div class="star-rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <input type="hidden" id="rating" name="rating" value="0" required>
+                <p id="rating-value" style="display:none;">Your rating: <span id="rating-display"></span></p>
+            </div>
+
+            <!-- Review Text Area -->
+            <div class="form-group">
+                <label for="review">Review</label>
+                <textarea id="review" name="review" rows="4" placeholder="Enter your review" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Rating</button>
+        </form>
+    </div>
+
+    <!-- Submission Confirmation -->
+    <div id="result">
+        <h2>Thank You!</h2>
+        <p>Your review has been submitted.</p>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <!-- JavaScript for handling star rating and review submission -->
+    <script>
+        // JavaScript for handling star rating and review submission
+        document.querySelectorAll('.star-rating .star').forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = this.getAttribute("data-value");
+                document.getElementById("rating").value = rating;
+                updateStars(rating);
+                showRatingValue(rating);
+            });
+
+            star.addEventListener('mouseover', function () {
+                const rating = this.getAttribute("data-value");
+                updateStars(rating);
+            });
+
+            star.addEventListener('mouseout', function () {
+                const currentRating = document.getElementById("rating").value;
+                updateStars(currentRating);
+            });
+        });
+
+        function updateStars(rating) {
+            document.querySelectorAll('.star-rating .star').forEach(star => {
+                star.classList.toggle('selected', star.getAttribute('data-value') <= rating);
+            });
+        }
+
+        function showRatingValue(rating) {
+            document.getElementById("rating-value").style.display = 'block';
+            document.getElementById("rating-display").innerText = rating;
+        }
+
+        const form = document.getElementById('ratingForm');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            const formData = {
+                hospitalName: document.getElementById("hospitalName").value,
+                rating: document.getElementById("rating").value,
+                review: document.getElementById("review").value
+            };
+
+            fetch('HospitalRatingServlet', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('result').style.display = 'block'; 
+                    document.getElementById('formContainer').style.display = 'none'; 
+                    form.reset(); // Reset the form
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function goBack() {
+            window.location.href = 'HospitalSearchServlet';
+        }
+
+        
+    </script>
+</body>
+</html>

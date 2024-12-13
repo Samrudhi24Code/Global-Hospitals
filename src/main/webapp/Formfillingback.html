@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital and Doctor Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background-color: #e60000;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        .card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .hospital-info, .doctor-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .hospital-info p, .doctor-info p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+        .hospital-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .doctor-info {
+            background-color: #e9f7ef;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .doctor-info p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <a href="doctorHome.html">
+  <button class="logout-btn">Back</button>
+</a>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Hospitals Information Saved!</h2>
+            
+        </div>
+    </div>
+</body>
+</html>

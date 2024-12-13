@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eDoc</title>
+    
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background and layout */
+        body {
+            background-color: #c9f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .full-height {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        /* Typography */
+        .edoc-logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0078d7;
+        }
+
+        .edoc-logo-sub {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        .heading-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #004085;
+        }
+
+        .sub-text2 {
+            font-size: 16px;
+            margin: 10px 0 20px;
+            color: #495057;
+        }
+
+        .footer-hashen {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 40px;
+        }
+
+        /* Buttons */
+        .login-btn, .rating-btn {
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px 25px;
+            margin-right: 10px; /* Added space between buttons */
+            margin-top: 20px; /* Space between buttons and text */
+        }
+        .rating-btn {
+            background-color: #28a745; /* Green color for visibility */
+        }
+
+        .login-btn:hover, .rating-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Links */
+        .non-style-link {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .non-style-link:hover {
+            color: #0056b3;
+        }
+
+        /* Additional styling for better button visibility */
+        .rating-btn {
+            background-color: #28a745; /* Clearer visibility for the button */
+        }
+
+        .rating-btn:hover {
+            background-color: #218838; /* Darker green shade */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="full-height">
+        <table border="0">
+            <tr>
+                <td width="80%">
+                    <span class="edoc-logo">Global Hospital</span>
+                </td>
+                <td width="10%">
+                    <a href="LogoutServlet" class="non-style-link">LOGOUT</a>
+                </td>
+                <td width="10%"></td>
+            </tr>
+            
+            <tr>
+                <td colspan="3">
+                    <p class="heading-text">Avoid Hassles &amp; Delays.</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <p class="sub-text2">How is health today? Sounds like not good!<br>Don't worry. Find your Hospital online and book as you wish with Global Doctor.<br>
+                        "Where Compassion Meets Advanced Care."</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a href="HospitalSearchServlet">
+                        <input type="button" value="Make Appointment" class="login-btn">
+                    </a>
+                    
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Role Selection for Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .signin-prompt {
+            margin-top: 15px;
+            color: #555;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="roleSelectionForm" onsubmit="return selectRole(event)">
+        <h2>Select Your Role</h2>
+        <label for="userType">Who are you?</label>
+        <select id="userType" name="userType" required>
+            <option value="">Select your role</option>
+            <option value="admin">Admin</option>
+            <option value="doctor">Doctor</option>
+            <option value="user">User</option>
+        </select>
+        <div id="roleError" class="error"></div>
+
+        <button type="submit">Next</button>
+
+        <div class="signin-prompt">
+            Already have an account? <a href="login.html">Login here</a>
+        </div>
+    </form>
+
+    <script>
+        function selectRole(event) {
+            event.preventDefault(); // Prevent form submission
+            const userType = document.getElementById('userType').value;
+            const roleError = document.getElementById('roleError');
+            roleError.textContent = ''; // Clear previous error message
+
+            // Validate role selection
+            if (userType === '') {
+                roleError.textContent = 'Please select a role before proceeding.';
+                return false; // Prevent form submission
+            }
+
+            // Redirect based on selected role
+            if (userType === 'admin') {
+                window.location.href = 'adminSignup.html'; // Redirect to Admin Signup
+            } else if (userType === 'doctor') {
+                window.location.href = 'doctorSignup.html'; // Redirect to Doctor Signup
+            } else if (userType === 'user') {
+                window.location.href = 'userSignup.html'; // Redirect to User Signup
+            }
+        }
+    </script>
+</body>
+</html>

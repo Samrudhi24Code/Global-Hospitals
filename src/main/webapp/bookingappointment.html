@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Submission Form</title>
+    <style>
+        /* General styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Allows vertical stacking */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+            color: #333;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Logout button styling */
+        .logout-button {
+            align-self: flex-end; /* Aligns to the right */
+            background: #ff4d4d; /* Red color for logout */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px; /* Space between logout button and form */
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background: #e60000; /* Darker red on hover */
+        }
+
+        /* Form container styling */
+        form {
+            background-color: #ffffff;
+            width: 500px; /* Increased width */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin: 12px 0 6px;
+        }
+
+        /* Input and button styling */
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #5f2c82;
+        }
+
+        /* Submit button styling */
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, #49a09d, #5f2c82);
+        }
+
+        .doctor-section {
+            margin-top: 20px;
+        }
+
+        .doctor-field {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .doctor-field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .doctor-field input {
+            margin-bottom: 10px;
+        }
+
+        .add-doctor-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .add-doctor-btn:hover {
+            background-color: #45a049;
+        }
+        .cfbtn{
+        border-radius:9px;
+        background-color:#9EDF9C;
+        width:140px;
+        height:35px;
+        }
+    </style>
+    <script>
+        // Function to dynamically add new doctor fields
+        function addDoctor() {
+            const doctorSection = document.getElementById("doctorSection");
+
+            const doctorDiv = document.createElement("div");
+            doctorDiv.classList.add("doctor-field");
+
+            const doctorNameLabel = document.createElement("label");
+            doctorNameLabel.setAttribute("for", "doctor_name");
+            doctorNameLabel.textContent = "Doctor's Name:";
+
+            const doctorNameInput = document.createElement("input");
+            doctorNameInput.setAttribute("type", "text");
+            doctorNameInput.setAttribute("name", "doctor_name[]");
+            doctorNameInput.setAttribute("required", "");
+
+            const doctorSpecializationLabel = document.createElement("label");
+            doctorSpecializationLabel.setAttribute("for", "doctor_specialization");
+            doctorSpecializationLabel.textContent = "Specialization:";
+
+            const doctorSpecializationInput = document.createElement("input");
+            doctorSpecializationInput.setAttribute("type", "text");
+            doctorSpecializationInput.setAttribute("name", "doctor_specialization[]");
+            doctorSpecializationInput.setAttribute("required", "");
+
+            const doctorContactLabel = document.createElement("label");
+            doctorContactLabel.setAttribute("for", "doctor_contact");
+            doctorContactLabel.textContent = "Contact Number:";
+
+            const doctorContactInput = document.createElement("input");
+            doctorContactInput.setAttribute("type", "text");
+            doctorContactInput.setAttribute("name", "qualification[]");
+            doctorContactInput.setAttribute("required", "");
+
+            // Append the new inputs to the doctorDiv
+            doctorDiv.appendChild(doctorNameLabel);
+            doctorDiv.appendChild(doctorNameInput);
+            doctorDiv.appendChild(doctorSpecializationLabel);
+            doctorDiv.appendChild(doctorSpecializationInput);
+            doctorDiv.appendChild(doctorContactLabel);
+            doctorDiv.appendChild(doctorContactInput);
+
+            // Append the doctorDiv to the section
+            doctorSection.appendChild(doctorDiv);
+        }
+    </script>
+</head>
+<body>
+    <h2>Hospital Submission Form</h2>
+    <a href="LogoutServlet" class="logout-button">Logout</a>
+
+    <form id="hospitalForm" action="HospitalServlet" method="post" enctype="multipart/form-data">
+        <label for="hospital_name">Hospital Name:</label>
+        <input type="text" id="hospital_name" name="hospital_name" required>
+
+        <label for="specializations">Specializations:</label>
+        <input type="text" id="specializations" name="specializations" placeholder="e.g., Cardiology, Dermatology" required>
+
+        <label for="facilities">Facilities:</label>
+        <input type="text" id="facilities" name="facilities" placeholder="e.g., 24/7 Emergency, ICU, Pharmacy" required>
+
+        <label for="hospital_image">Upload Hospital Image:</label>
+        <input type="file" id="hospital_image" name="hospital_image" accept="image/*" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="contact_info">Contact Information:</label>
+        <input type="text" id="contact_info" name="contact_info" required>
+
+        <label for="operating_hours">Operating Hours:</label>
+        <input type="text" id="operating_hours" name="operating_hours" placeholder="e.g., 9 AM - 5 PM" required>
+
+        <!-- Doctor Section -->
+        <h3>Doctor Information</h3>
+        <div id="doctorSection" class="doctor-section">
+            <!-- New doctor fields will be added here -->
+        </div>
+        <button type="button" class="add-doctor-btn" onclick="addDoctor()">Add Another Doctor</button>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

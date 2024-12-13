@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Information Form</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form header */
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Submit button styling */
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Doctor Information Form</h2>
+    <form action="DoctorForm" method="POST">
+        <!-- Doctor Name Field -->
+        <div class="form-group">
+            <label for="doctorName">Doctor's Name</label>
+            <input type="text" id="doctorName" name="doctorName" placeholder="Enter doctor's name" required>
+        </div>
+        
+        <!-- Education Field -->
+        <div class="form-group">
+            <label for="education">Education</label>
+            <input type="text" id="education" name="education" placeholder="Enter education (e.g., MBBS, MD)" required>
+        </div>
+        
+        <!-- Specialization Field (updated to text input) -->
+        <div class="form-group">
+            <label for="specialization">Specialization</label>
+            <input type="text" id="specialization" name="specialization" placeholder="Enter specialization" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

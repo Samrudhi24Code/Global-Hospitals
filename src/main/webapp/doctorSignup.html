@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="doctorSignupForm" action="doctorsignServlet" method="POST" onsubmit="return validateForm()">
+        <h2>Doctor Sign Up</h2>
+        <label for="doctorUsername">Username:</label>
+        <input type="text" id="doctorUsername" name="username" required>
+        <div id="usernameError" class="error"></div>
+
+        <label for="doctorEmail">Email:</label>
+        <input type="email" id="doctorEmail" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="doctorPassword">Password:</label>
+        <input type="password" id="doctorPassword" name="password" required>
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            // Get form values
+            const username = document.getElementById('doctorUsername').value;
+            const email = document.getElementById('doctorEmail').value;
+            const password = document.getElementById('doctorPassword').value;
+
+            let isValid = true;
+
+            // Username validation
+            if (username.length < 3) {
+                document.getElementById('usernameError').textContent = 'Username must be at least 3 characters long.';
+                isValid = false;
+            }
+
+            // Email validation
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
+                isValid = false;
+            }
+
+            return isValid; // Prevent form submission if validation fails
+        }
+    </script>
+</body>
+</html>

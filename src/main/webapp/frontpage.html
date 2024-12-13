@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Hospitals</title>
+  <style>
+    /* Reset and Basic Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+
+    /* Header Styles */
+    .header-container {
+      background: linear-gradient(45deg, #0073e6, #005bb5);
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container h1 {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .header-container nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .header-container nav a:hover {
+      color: #f8f9fa;
+    }
+
+    /* Logout Button */
+    .logout-button {
+      background-color: #ff4c4c;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-button:hover {
+      background-color: #e63939;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(to right, #e0f7ff, #cceeff);
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    #hero h2 {
+      font-size: 36px;
+      color: #0073e6;
+      margin-bottom: 15px;
+      text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #hero p {
+      font-size: 18px;
+      color: #333;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Services Section */
+    #services {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    #services h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      background: #e0f7ff;
+      padding: 25px;
+      border-radius: 15px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 115, 230, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 5px solid #0073e6;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 115, 230, 0.3);
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      color: #0073e6;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    /* About Section */
+    #about {
+      padding: 60px 20px;
+      background-color: #f4f7fb;
+      text-align: center;
+    }
+
+    #about h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #about p {
+      font-size: 18px;
+      color: #666;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: #005bb5;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: #f8f9fa;
+      text-decoration: none;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>GLOBAL HOSPITALS</h1>
+      <nav>
+        <a href="login.html">Login</a>
+        <a href="contact.html">Contact</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <h2>Providing the Best Quality Healthcare for You</h2>
+    <p>Find the right hospital effortlessly with our user-friendly search feature.</p>
+  </section>
+
+  <section id="services">
+    <h2>Choose Your Favourite Services</h2>
+    <p>Select from a variety of services tailored to your health needs.</p>
+    <div class="service-cards">
+      <div class="service-card">
+        <h3>Make an Appointment</h3>
+        <p>Book an appointment to receive world-class care and personalized medical attention from our expert healthcare team.</p>
+      </div>
+      <div class="service-card">
+        <h3>Help by Specialist</h3>
+        <p>Get expert guidance and personalized care from our team of medical specialists.</p>
+      </div>
+      <div class="service-card">
+        <h3>Get Diagnostic Report</h3>
+        <p>Access your diagnostic report quickly and securely for timely insights into your health.</p>
+      </div>
+      <div class="service-card">
+        <h3>Medical Checkup</h3>
+        <p>Comprehensive medical checkups to keep your health on track.</p>
+      </div>
+      <div class="service-card">
+        <h3>Nursing Services</h3>
+        <p>Cardiology, Dermatology, etc.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Global Hospitals</h2>
+    <p>Global Hospital is a healthcare institution known for providing advanced medical services, compassionate care, and cutting-edge treatments across various specialties on an international scale.</p>
+  </section>
+
+  <footer>
+    <p><strong>Operating Hours:</strong> Monday - Saturday, 8am to 10pm</p>
+    <p><strong>Contact:</strong> +62 0888 904 711 | <a href="mailto:global@hospitals.com">global@hospitals.com</a></p>
+    <p>Global Hospitals: Where Quality Meets Care</p>
+  </footer>
+
+  
+</body>
+</html>

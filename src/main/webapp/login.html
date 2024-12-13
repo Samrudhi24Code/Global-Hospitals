@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4f77ff, #4fc3ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Form and Prompt Container */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        /* Form Container */
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Heading */
+        h2 {
+            color: #4f77ff;
+            margin-bottom: 1em;
+        }
+
+        /* Labels and Input Styling */
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #4f77ff;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4f77ff;
+        }
+        
+        /* Submit Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4f77ff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3a61d0;
+        }
+
+        /* Error Message Styling */
+        .error-message {
+            color: red;
+            margin-top: 15px;
+            display: none; /* Initially hidden */
+        }
+
+        /* Bright Sign-up Prompt */
+        .signup-prompt {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: #ff8c00;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .signup-prompt a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .signup-prompt:hover {
+            background-color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm" action="loginServlet" method="post">
+            <h2>Login</h2>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="role">Login as:</label>
+            <select id="role" name="role">
+                <option value="admin">Admin</option>
+                <option value="doctor">Doctor</option>
+                <option value="user">User</option>
+            </select>
+
+            <button type="submit">Login</button>
+
+            <!-- Error Message Section -->
+            <div id="error-message" class="error-message">Unsuccessful login. Please try again.</div>
+        </form>
+
+        <!-- Sign-up Prompt Section -->
+        <div class="signup-prompt">
+            Don't have an account? <a href="roleselection.html">Sign up here</a>
+        </div>
+    </div>
+
+    <script>
+        // Check for error parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

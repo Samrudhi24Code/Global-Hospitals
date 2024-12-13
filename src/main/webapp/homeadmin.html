@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Admin Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-button {
+            display: block;
+            background-color: #fff;
+            color: #5f2c82;
+            padding: 15px 30px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #49a09d;
+            color: #fff;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+            color: #5f2c82;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #49a09d;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="frontpage.html" class="logout-button">Logout</a>
+    <h1>Welcome to the Admin Portal</h1>
+    <div class="button-container">
+        <a href="adminDashboard.html" class="nav-button">Go to Admin Dashboard</a>
+        <a href="AdminViewHospital" class="nav-button">See the Booking</a>
+    </div>
+</body>
+</html>

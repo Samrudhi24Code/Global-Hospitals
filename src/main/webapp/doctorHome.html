@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main layout styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header .title {
+            font-size: 1.2em;
+            color: #1a73e8;
+        }
+
+        .logout-button {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #c0392b;
+        }
+
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #1a73e8;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background-color: #155ab8;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header with Global Hospitals and Logout button -->
+        <div class="header">
+            <div class="title">Global Hospitals </div>
+            <button class="logout-button" onclick="window.location.href='frontpage.html'">Logout</button>
+        </div>
+
+        <h1>Appointment Management</h1>
+
+        <!-- View Booking Section -->
+        <div class="card">
+            <h2>View Booking</h2>
+            <p>Check your appointment schedule and details here.</p>
+            <button class="button" onclick="window.location.href='DoctorAppointmentViewServlet'">View Booking</button>
+        </div>
+
+        <!-- Make Appointment Section -->
+        <div class="card">
+            <h2>Add Hospital Details</h2>
+            <p>Schedule a new appointment at your convenience.</p>
+            <button class="button" onclick="window.location.href='instructions.html'">Add Hospital and Doctors</button>
+        </div>
+        
+    </div>
+
+</body>
+</html>
